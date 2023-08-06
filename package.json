@@ -1,0 +1,23 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olatocode/Blog-api.git"
+  },
+  "keywords": [
+    "Blog",
+    "users"
+  ],
+  "author": "Tobi Awosola",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olatocode/Blog-api/issues"
+  },
+  "homepage": "https://github.com/olatocode/Blog-api#readme"
+}
