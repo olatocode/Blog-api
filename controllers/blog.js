@@ -2,7 +2,7 @@
 const { text } = require('express');
 const db = require('../config/db');
 
-// To create a new posts
+// To create a new post
 const createPost = async (req, res) => {
   try {
     const { title, content } = req.body;
@@ -19,7 +19,7 @@ const createPost = async (req, res) => {
   }
 };
 
-// To show all created posts
+// To show all created post
 const getPost = async (req, res) => {
   try {
     const newPost = await db.query('SELECT * FROM blog ORDER BY id ASC');
