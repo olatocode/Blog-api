@@ -2,7 +2,7 @@
 const { text } = require('express');
 const db = require('../config/db');
 
-// To create a new post
+// To create a new posts
 const createPost = async (req, res) => {
   try {
     const { title, content } = req.body;
