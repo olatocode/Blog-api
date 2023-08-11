@@ -2,7 +2,6 @@
 
 const express = require('express');
 const dotenv = require('dotenv');
-const helmet = require('helmet');
 const app = express();
 
 const connectDB = require('./config/db');
@@ -22,7 +21,6 @@ app.use(
     extended: true,
   })
 );
-app.use(helmet());
 app.use(mongoSanitize());
  const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
  app.use(
