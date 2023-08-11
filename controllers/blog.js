@@ -1,5 +1,4 @@
 /** @format */
-const { text } = require('express');
 const db = require('../config/db');
 
 // To create a new post
