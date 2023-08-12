@@ -20,7 +20,7 @@ const createPost = async (req, res) => {
 // To show all created post
 const viewPost = async (req, res) => {
   try {
-    const newPost = await db.query('SELECT * FROM blog ORDER BY id ASC');
+    const newPost = await db.query('SELECT * FROM blog');
 
     return res.status(200).json({
       message: 'All post view successfully',
