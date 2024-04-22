@@ -20,14 +20,19 @@ const createPost = async (req, res) => {
 // To show all created post
 const viewPost = async (req, res) => {
   try {
-    const newPost = await db.query('SELECT * FROM blog');
+    const { rows: posts } = await db.query('SELECT * FROM blog');
+
+    if (posts.length === 0) {
+      return res.status(404).json({ message: 'No posts found' });
+    }
 
     return res.status(200).json({
-      message: 'All post view successfully',
-      post: newPost.rows,
+      message: 'Posts retrieved successfully',
+      posts,
     });
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    console.error('Error retrieving posts:', error);
+    return res.status(500).json({ message: 'Internal server error' });
   }
 };
 
