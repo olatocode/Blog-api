@@ -9,10 +9,8 @@ const blogRouter = require('./routes/blog');
 const mongoSanitize = require('express-mongo-sanitize');
 const session = require('cookie-session');
 
-
 // connect to postgresql database
 connectDB;
-
 
 app.use(express.json());
 dotenv.config();
@@ -22,20 +20,20 @@ app.use(
   })
 );
 app.use(mongoSanitize());
- const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
- app.use(
-   session({
-     name: 'session',
-     keys: ['key1', 'key2'],
-     cookie: {
-       secure: true,
-       httpOnly: true,
-       domain: 'localhost',
-       path: 'http://localhost:4000/api/v1/posts',
-       expires: expiryDate,
-     },
-   })
- );
+const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+app.use(
+  session({
+    name: 'session',
+    keys: ['key1', 'key2'],
+    cookie: {
+      secure: true,
+      httpOnly: true,
+      domain: 'localhost',
+      path: 'http://localhost:4000/api/v1/posts',
+      expires: expiryDate,
+    },
+  })
+);
 // base url
 app.get('/', (req, res) => {
   res.json({
@@ -44,7 +42,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1', blogRouter);
-
 
 // initiate express connection
 const port = process.env.PORT;
