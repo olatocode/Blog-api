@@ -2,12 +2,13 @@
 
 const express = require('express');
 const dotenv = require('dotenv');
+const mongoSanitize = require('express-mongo-sanitize');
+const session = require('cookie-session');
+const cors = require('cors');
 const app = express();
 
 const connectDB = require('./src/config/db');
 const blogRouter = require('./src/routes/blog');
-const mongoSanitize = require('express-mongo-sanitize');
-const session = require('cookie-session');
 
 // connect to postgresql database
 connectDB;
@@ -19,6 +20,7 @@ app.use(
     extended: true,
   })
 );
+app.use(cors());
 app.use(mongoSanitize());
 const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 app.use(
