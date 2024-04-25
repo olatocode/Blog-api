@@ -4,8 +4,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const app = express();
 
-const connectDB = require('./config/db');
-const blogRouter = require('./routes/blog');
+const connectDB = require('./src/config/db');
+const blogRouter = require('./src/routes/blog');
 const mongoSanitize = require('express-mongo-sanitize');
 const session = require('cookie-session');
 
