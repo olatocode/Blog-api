@@ -20,7 +20,14 @@ app.use(
     extended: true,
   })
 );
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 200,
+  })
+);
 app.use(mongoSanitize());
 const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 app.use(
